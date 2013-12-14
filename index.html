@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE-9" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE-9" >
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
 	<title>Devdatta Akhawe</title>
-	<link rel="stylesheet" type="text/css" href="css/style.min.css"></link>
+    <style>
+*{margin:0;padding:0}body{font:16px "Lucida Grande",Helvetica,Arial,Sans-Serif;background:#333}html{overflow-y:scroll}a{text-decoration:none;outline:0}#page-wrap{max-width:960px;margin:0 auto;position:relative}h1{font:700 32px Helvetica,Sans-Serif;letter-spacing:-1px;padding:18px 0 18px 30px;color:#fff}h1 span{background:#4660e2;padding:3px 8px;color:#fff;font-size:20px;letter-spacing:0;position:relative;top:-6px;font-weight:400}#main-content{position:relative;z-index:200;margin:0;background:#fff;padding:30px;min-height:500px}p{line-height:1.5;margin:0 0 15px}.callout{background:#fdfce4;padding:15px;border:1px solid #fff000;border-radius:6px}h3{font-size:28px;margin:0 0 15px;color:#304659}#main-content a{text-decoration:none}#main-content a:hover{text-decoration:none;border-bottom:2px solid #4660e2}dl{padding-bottom:20px}dt{font-weight:700}dd{background:no-repeat left top;padding-left:50px;margin-bottom:10px}.papermetadata{margin:10px 0}.papermetadata span{padding-right:5px;display:none}.papermetadata a{color:#00f!important}.papermetadata .abstract{display:none;width:80%;text-align:justify;font-size:90%}.jse a{color:#000}.jse a:hover{border-bottom-style:none!important}
+</stylE>
     <link rel="canonical" href="http://devd.me"/>
 </head>
 
@@ -424,11 +428,28 @@ format. It is now part of the <a href="http://code.google.com/p/hampi/">Hampi
 codebase</a>.</p> </div></div>
         
         <div id="footer">
+          <p>&nbsp;</p>
     	</div>
 	
 	</div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript">
+</div>
+
+<script>
+       // Add a script element as a child of the body
+     function downloadJSAtOnload() {
+        var element = document.createElement("script");
+         element.src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
+         element.onload = addAbstracts;
+         document.body.appendChild(element);
+      }
+ // Check for browser support of event handling capability
+ if (window.addEventListener)
+   window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent)
+   window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+
+    function addAbstracts() {
 	$('.papermetadata .abstract').each(function(){
 	    var absdiv=$(this);
 	    $(this).parent().children('span').first().each(function(){
@@ -448,10 +469,7 @@ codebase</a>.</p> </div></div>
 	    });
 		
 	  });
-	</script>
-</div>
-
-<script>
+    }
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
