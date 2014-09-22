@@ -1,0 +1,66 @@
+==================================================================
+https://keybase.io/devd
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://devd.me
+  * I am devd (https://keybase.io/devd) on keybase.
+  * I have a public key with fingerprint D3D9 2B01 A113 AF5E B1DE  A64E F3B3 16D5 FCB3 FA01
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "d3d92b01a113af5eb1dea64ef3b316d5fcb3fa01",
+            "host": "keybase.io",
+            "key_id": "f3b316d5fcb3fa01",
+            "uid": "c162acda26c20a5e1d2b15a194beec00",
+            "username": "devd"
+        },
+        "service": {
+            "hostname": "devd.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1411426093,
+    "expire_in": 157680000,
+    "prev": "85c330a3a2d1d1f1fbf8c7a814ff9b8d794940e738795e9085b455d78ff20e03",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.0.5
+Comment: https://keybase.io/crypto
+
+yMHhAnicO8LLzMDFKLTCsW5l25QXjKcPvChlCFFYrlutlJSfUqlkVa2UnQqm0jLz
+0lOLCooy80qUrJRSjFMsjZIMDBMNDY0T00xTkwxTUhPNTFLTjJOMDc1STNOSk4zT
+Eg0MlXSUMvKLQTqAxiQlFqfqZeYDxYCc+MwUoCgW9aVgiWRDM6PE5JREI7NkI4NE
+01TDFKMkQ9NEQ0uTpNTUZAMDkMLi1KK8xNxUkHNSy1KUanWUgCJlmcmpIPeCrEWS
+1QOydJQKivJL8pPzc4CCGSUlBVYgPSWVBSBF5alJ8VDt8UmZeSlA7wI1lKUWFWfm
+5ylZGQJVJpdkgswzNDE0NDEyM7A01lFKrSjILEqNzwSpMDU3szAAApA1qWVAIy1M
+k42NDRKNE41SDFMM0wzTktIsks0TLQxN0tIskyxSzC1NLE0MUs2NLcwtTVMtDSxM
+k0xMTVPMLdLSjAxSDYyVQB4qzMtXsgLaVJKYDjSyODM9L7GktChVqfbQgRgWBkYu
+BjZWJlCEMXBxCsCiscef/X9RfcHj0uMm0v/UUi7+vvFEwC3VwNnI5z7PyvWXbgmo
+77vqJ14RqT6t0VLUYdJR4funJvkJPUz3WcNzv3WmRn4g/5T+0zd3xk111vJlO6Gs
+9XFC99yKljn7a1ex7u6wXPda9t/K4xdfsh1JVA2K/1XKMTEs6eLzYxeFa+vsGWef
+TOr6d/CzhogO+73MWVJdWpU5y9YFPblYPKVGXUrEbKd7tZmQx7yQw44VNU9/TL9c
+lzNjvd39j1byTG9kxH8YH711ZUJUu39A5QYOC2fXjjWNpxI2G9Txf1iW7bxqdk7Y
++2XPDh+Z+Z9tx89PGqxd29+8y/Vear78a/T9hdds1j9lZrwxQ/+reN/Oqe4WibUA
+AlwSCQ==
+=vr4L
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/devd
+
+==================================================================
+
