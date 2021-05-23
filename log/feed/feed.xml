@@ -70,7 +70,7 @@
 &lt;p&gt;A static analysis strategy that relies on expensive, heavy integration for each language does not work in this world. Instead, light-weight AST/text-based tools that allow enforcing best practices as defined by the security/engineering teams work best. Moreover, this creative work by security teams needs tools that are interoperable, moldable, efficient, and community driven. I am excited where the Semgrep community goes as it embraces this idea.&lt;/p&gt;
 &lt;p&gt;Now, this doesn’t mean smarter static analysis tools are dead. The ideas behind these tools are some of the most powerful ideas in computer science. To be successful, the tools built on these ideas need to embrace that they are creative tools in the hands of their users. How can they make their analysis fast, understandable, and community-driven? &lt;a href=&quot;https://semmle.com/&quot;&gt;Github/Semmle&lt;/a&gt; has a very similar community-driven approach. But the tool lacks the open interoperability, understandability, and speed of Semgrep. At the same time, Semgrep continues to get smarter with support for constant inference, basic flow analysis and so on.&lt;/p&gt;
 &lt;p&gt;If Semmle becomes understandable, faster, open; before Semgrep becomes smarter, Semmle could win! But, either way, whatever happens, security teams win! 🙂&lt;/p&gt;
-&lt;p&gt;** Thanks to Clint Gibbller, Matthew Finifter, Max Burkhardt, Sean Byrne for their feedback. **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thanks to Clint Gibbller, Matthew Finifter, Max Burkhardt, Sean Byrne for their feedback. All mistakes are mine and I would love your feedback.&lt;/strong&gt;&lt;/p&gt;
 
 			
 				
