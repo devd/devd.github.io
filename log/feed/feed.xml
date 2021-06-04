@@ -5,7 +5,7 @@
 	
 	<link href="https://devd.me/log/feed/feed.xml" rel="self"/>
 	<link href="https://devd.me/log/"/>
-	<updated>2021-05-23T17:00:00-07:00</updated>
+	<updated>2021-06-03T17:00:00-07:00</updated>
 	<id>https://devd.me/log/</id>
 	<author>
 		<name>Devdatta Akhawe</name>
@@ -70,12 +70,37 @@
 &lt;p&gt;A static analysis strategy that relies on expensive, heavy integration for each language does not work in this world. Instead, light-weight AST/text-based tools that allow enforcing best practices as defined by the security/engineering teams work best. Moreover, this creative work by security teams needs tools that are interoperable, moldable, efficient, and community driven. I am excited where the Semgrep community goes as it embraces this idea.&lt;/p&gt;
 &lt;p&gt;Now, this doesn’t mean smarter static analysis tools are dead. The ideas behind these tools are some of the most powerful ideas in computer science. To be successful, the tools built on these ideas need to embrace that they are creative tools in the hands of their users. How can they make their analysis fast, understandable, and community-driven? &lt;a href=&quot;https://semmle.com/&quot;&gt;Github/Semmle&lt;/a&gt; has a very similar community-driven approach. But the tool lacks the open interoperability, understandability, and speed of Semgrep. At the same time, Semgrep continues to get smarter with support for constant inference, basic flow analysis and so on.&lt;/p&gt;
 &lt;p&gt;If Semmle becomes understandable, faster, open; before Semgrep becomes smarter, Semmle could win! But, either way, whatever happens, security teams win! 🙂&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Thanks to Clint Gibler, Matthew Finifter, Max Burkhardt, Sean Byrne for their feedback. All mistakes are mine and I would love your feedback.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&quot;https://tldrsec.com/&quot;&gt;Clint Gibler&lt;/a&gt;, Matthew Finifter, Max Burkhardt, Sean Byrne for their feedback. All mistakes are mine and I would love your feedback.&lt;/em&gt;&lt;/p&gt;
 
 			
 				
 				
 				&lt;img src=&quot;https://devd.me/log//.netlify/functions/ga?v=1&amp;_v=j83&amp;t=pageview&amp;dr=https%3A%2F%2Frss-feed-reader.com&amp;_s=1&amp;dh=devd.me&amp;dp=%2Fposts%2Fstatic-analysis%2F&amp;ul=en-us&amp;de=UTF-8&amp;dt=Modern%20Static%20Analysis%3A%20how%20the%20best%20tools%20empower%20creativity&amp;tid=UA-5474337-3&quot; width=&quot;1&quot; height=&quot;1&quot; style=&quot;display:none&quot; alt=&quot;&quot;&gt;
+			
+		</content>
+	</entry>
+	
+	<entry>
+		<title>Kerckhoff’s Law for Security Engineers</title>
+		<link href="https://devd.me/log/posts/kerckhoffs-law/"/>
+		<updated>2021-06-03T17:00:00-07:00</updated>
+		<id>https://devd.me/log/posts/kerckhoffs-law/</id>
+		<content type="html">
+		  &lt;p&gt;One of the first lessons in cryptography 101 is &lt;a href=&quot;https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle&quot;&gt;Kerckhoff’s law&lt;/a&gt;: a cryptosystem should be secure even if everything about the system, except the key, is public knowledge. This is an often-repeated maxim accompanied with “there is no security with obscurity.”&lt;/p&gt;
+&lt;p&gt;I always found this framing confusing: it felt inconsistent within itself. “&lt;em&gt;don’t rely on secrecy except for the secrecy of the key&lt;/em&gt;” What is so special about keys? Why is it ok to rely on the secrecy of keys and not on secrecy of anything else? And because it is so focused on keys, it’s hard to really take this foundational lesson and apply it in contexts other than cryptographic algorithms.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;https://www.theatlantic.com/magazine/archive/2002/09/homeland-insecurity/302575/&quot;&gt;Schneier’s framing&lt;/a&gt;, the aim here is &lt;em&gt;resilience&lt;/em&gt;. Secrecy is a source of brittleness. When something you relied on being secret inevitably leaks, it can be the cause of catastrophic failure. I.e., if you rely on your cryptographic algorithm remaining secret, one day it’s not and suddenly you are in a world of pain.&lt;/p&gt;
+&lt;p&gt;This provides a framing of Kerckhoff’s law that I have found very useful: the security of your system should &lt;em&gt;&lt;strong&gt;rely only on secrecy of things you can change easily&lt;/strong&gt;&lt;/em&gt;. Just using open, well-known algorithms for encryption is not enough. You need to be able to change the key easily.&lt;/p&gt;
+&lt;p&gt;Usually, this means &lt;em&gt;supporting&lt;/em&gt; key rotation in the design—e.g., a encryption scheme that integrates with your key management service also includes the key version in the ciphertext. But, in my experience, a stated design goal to support rotation rarely works. Actually rotating the key regularly is the only way to be sure that you can change the key easily. Ideally, your key management service will automatically rotate secrets at a cadence.&lt;/p&gt;
+&lt;p&gt;This is then an easy pattern to look for in security design or review: a cryptosystem where the key is static or not rotated regularly is a source of brittleness almost as bad as having a secret algorithm. Unfortunately, the common framing of Kerckhoff’s law has meant every engineer will detect and flag the use of an obscure, homebrew crypto algorithm but will happily stamp an encryption scheme that never rotates the key (or worse, &lt;em&gt;can’t&lt;/em&gt; rotate the key).&lt;/p&gt;
+&lt;p&gt;The reframing also provides a useful lesson for security engineering: relying on secret you are not rotating regularly is a security risk. As much as possible, rely on short-lived secrets and minimize long-lived secrets. For example, for AWS access, do not rely on IAM access keys and secrets; prefer the short-lived credentials provided by role assumption. Ask your vendors to integrate with you using role assumption rather than IAM access keys (something &lt;a href=&quot;https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/&quot;&gt;even Amazon pushes for&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I find this philosophy also useful organizationally! A security team unwilling to talk about the architecture or design with customers or researchers is an anti-pattern: the security architecture of an application is not something you can change easily, so sharing it and getting more eyes on it can only help you make secure! Openness and transparency is the mark of a leading security organization. For example, see the Uber security team’s &lt;a href=&quot;https://eng.uber.com/bug-bounty-map/&quot;&gt;open treasure map&lt;/a&gt;. Or, see the Gitlab security team’s goal of being the &lt;a href=&quot;https://about.gitlab.com/handbook/engineering/security/&quot;&gt;most open security team in the world&lt;/a&gt;. Or, just the &lt;a href=&quot;https://www.chromium.org/Home/chromium-security&quot;&gt;Chrome Security team’s approach&lt;/a&gt; overall.&lt;/p&gt;
+&lt;p&gt;Finally, it’s useful to remember the real goal here is robust security. Agility is the only way to achieve true robustness, as we learn of new vulnerabilities in systems and algorithms. Just openness in and of itself does not magically make things secure. Rather, openness is a bet that something has had more eyes on it. But even the most reviewed systems fail over time. TLS1.0, RC4, MD5, CBC, RSA — some of the most heavily reviewed systems have been broken over time and the ones we use today will likely be broken some day (hopefully, far) in the future. Can your system adapt?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&quot;https://tldrsec.com/&quot;&gt;Clint Gibler&lt;/a&gt;, Hongyi Hu, Matthew Finifter, Max Burkhardt, Patrick Toomey, Russ Allbery for their feedback. All mistakes are mine and I would love your feedback!&lt;/em&gt;&lt;/p&gt;
+
+			
+				
+				
+				&lt;img src=&quot;https://devd.me/log//.netlify/functions/ga?v=1&amp;_v=j83&amp;t=pageview&amp;dr=https%3A%2F%2Frss-feed-reader.com&amp;_s=1&amp;dh=devd.me&amp;dp=%2Fposts%2Fkerckhoffs-law%2F&amp;ul=en-us&amp;de=UTF-8&amp;dt=Kerckhoff%E2%80%99s%20Law%20for%20Security%20Engineers&amp;tid=UA-5474337-3&quot; width=&quot;1&quot; height=&quot;1&quot; style=&quot;display:none&quot; alt=&quot;&quot;&gt;
 			
 		</content>
 	</entry>
